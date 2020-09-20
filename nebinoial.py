@@ -11,7 +11,7 @@ def prob(r, n, p):
     Returns:
         float: binomial probability
     """
-    return math.comb(r - 1, n - 1) * pow(p, r) * pow(1 - p, n - r)
+    return math.comb(n - 1, r - 1) * pow(p, r) * pow(1 - p, n - r)
 
 def infoMeasure(r, n, p):
     """
@@ -60,19 +60,17 @@ def approxEntropy(N, p, r):
             sum += prob(r, i, p) * infoMeasure(r, i, p)
     return sum
 
-
-
 print(prob(4, 10, 0.6))
-#output 0.11147673600000003
+#output 0.04459069440000002
 
 print(infoMeasure(4, 10, 0.6))
-#output 3.1651854283228755
+#output 4.487113523210238
 
 print(sumProb(100, 0.6, 8))
-#output 1.0
+#output 0.9999999999999999
 
 print(approxEntropy(100, 0.6, 8))
-#output 4.339359847918865
+#output 3.5397152951580377
 
 print(approxEntropy(100, 0.5, 8))
-#output 4.369011409223017 
+#output 3.9740313590471255e
