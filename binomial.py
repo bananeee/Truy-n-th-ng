@@ -43,7 +43,7 @@ def sumProb(N, p):
 
 def approxEntropy(N, p):
     """
-    
+    r tiến đến càng gần N thì giá trị trung bình càng tiến tới 0.5^N
     Args:
         N (int): number of symbols
         p (float): probability of success on a single trial

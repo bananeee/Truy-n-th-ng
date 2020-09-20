@@ -45,7 +45,7 @@ def sumProb(N, p, r):
 
 def approxEntropy(N, p, r):
     """
-    
+    r tiến đến càng gần N thì giá trị trung bình càng tiến tới 0.5^N
     Args:
         r (int): number of success trials
         N (int): number of symbols
@@ -72,5 +72,5 @@ print(sumProb(100, 0.6, 8))
 print(approxEntropy(100, 0.6, 8))
 #output 3.5397152951580377
 
-print(approxEntropy(100, 0.5, 8))
+print(approxEntropy(100, 0.5, 10))
 #output 3.9740313590471255e
