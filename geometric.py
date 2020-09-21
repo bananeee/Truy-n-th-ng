@@ -35,7 +35,7 @@ def sumProb(N, p):
         float: sum of geometric probability of symbols from 1 to N
     """
     sum = 0
-    for i in range(1, N):
+    for i in range(1, N + 1):
         sum += prob(i, p)
     return sum
 
@@ -50,7 +50,7 @@ def approxEntropy(N, p):
         float: approximate entropy of a geometric information source
     """
     sum = 0
-    for i in range(1, N):
+    for i in range(1, N + 1):
         sum += prob(i, p) * infoMeasure(i, p)
     return sum
 

@@ -1,5 +1,6 @@
 import math
 
+
 def prob(r, n, p):
     """
 
@@ -12,6 +13,7 @@ def prob(r, n, p):
         float: binomial probability
     """
     return math.comb(n - 1, r - 1) * pow(p, r) * pow(1 - p, n - r)
+
 
 def infoMeasure(r, n, p):
     """
@@ -26,6 +28,7 @@ def infoMeasure(r, n, p):
     """
     return - math.log2(prob(r, n, p))
 
+
 def sumProb(N, p, r):
     """
     N tiến đến vô cùng thì sumProb tiến tới 1, vì tổng xác xuất của tất cả các symbol = 1
@@ -38,10 +41,10 @@ def sumProb(N, p, r):
         float: sum of binomial probability of symbols from 1 to N
     """
     sum = 0
-    for i in range(1, N):
-        if (i >= r):
-            sum += prob(r, i, p)
+    for i in range(r, N + 1):
+        sum += prob(r, i, p)
     return sum
+
 
 def approxEntropy(N, p, r):
     """
@@ -55,22 +58,22 @@ def approxEntropy(N, p, r):
         float: approximate entropy of a binomial information source
     """
     sum = 0
-    for i in range(1, N):
-        if (i >= r):
-            sum += prob(r, i, p) * infoMeasure(r, i, p)
+    for i in range(r, N + 1):
+        sum += prob(r, i, p) * infoMeasure(r, i, p)
     return sum
 
+
 print(prob(4, 10, 0.6))
-#output 0.04459069440000002
+# output 0.04459069440000002
 
 print(infoMeasure(4, 10, 0.6))
-#output 4.487113523210238
+# output 4.487113523210238
 
 print(sumProb(100, 0.6, 8))
-#output 0.9999999999999999
+# output 0.9999999999999999
 
 print(approxEntropy(100, 0.6, 8))
-#output 3.5397152951580377
+# output 3.5397152951580377
 
 print(approxEntropy(100, 0.5, 10))
-#output 3.9740313590471255e
+# output 4.150775320863947
